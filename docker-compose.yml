@@ -102,3 +102,14 @@ services:
       - front-tier
     restart: always
 
+  github-exporter:
+    tty: true
+    stdin_open: true
+    expose:
+      - 9171
+    ports:
+      - 9171:9171
+    image: infinityworks/github-exporter:latest
+    environment:
+      - REPOS=min2ha/w3act
+      - GITHUB_TOKEN=04576f7effbe31902fe9ff7faae95373db85ad64
